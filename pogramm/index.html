@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/Gemini_Generated_Image_ymd1gxymd1gxymd1-Photoroom.png">
+    <title>Прогулки по Санкт-Петербургу | Архиметрика</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=75ebf6b7-e345-41a8-ab16-d58a238d7554&lang=ru_RU" type="text/javascript"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">Архиметрика</div>
+
+        <nav class="nav" id="nav">
+            <div class="nav-header">
+                <span class="close-menu">&#10005;</span>
+            </div>
+            <a href="#">Главная</a>
+            <a href="#">Маршруты</a>
+            <a href="#">Галерея</a>
+            <a href="#">О компании</a>
+            <a href="#">Контакты</a>
+        </nav>
+
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Прогулки по Санкт-Петербургу</h1>
+            <p>Уникальные маршруты по одному из самых красивых городов мира</p>
+            <button class="open-booking">Забронировать прогулку</button>
+        </div>
+    </section>
+
+    <div class="a">
+        <section id="routes" class="routes">
+            <section class="routes">
+                <h2>Наши маршруты</h2>
+
+                <div class="routes-container">
+                    <a href="routes/historical-center.html" class="route-card">
+                        <img src="https://images.pexels.com/photos/9526771/pexels-photo-9526771.jpeg?_gl=1*1a66fa7*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzUzMjckbzIkZzEkdDE3NzMzMzU2MDgkajUzJGwwJGgw" alt="Маршрут">
+                        <div class="route-content">
+                            <h3>Исторический центр</h3>
+                            <p class="route-desc">Невский проспект, Дворцовая площадь и главные символы города.</p>
+                            <p class="route-points-title">Ключевые точки:</p>
+                            <ul class="route-points">
+                                <li>Дворцовая площадь</li>
+                                <li>Исаакиевский собор</li>
+                                <li>Медный всадник</li>
+                                <li>Зимний дворец</li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <a href="routes/peterhof.html" class="route-card">
+                        <img src="https://images.pexels.com/photos/27890329/pexels-photo-27890329.jpeg" alt="Маршрут">
+                        <div class="route-content">
+                            <h3>Петергоф, фонтаны Нижнего парка</h3>
+                            <p class="route-desc">Познакомиться с главным украшением самого посещаемого музея-заповедника России</p>
+                            <p class="route-points-title">Ключевые точки:</p>
+                            <ul class="route-points">
+                                <li>Большой каскад</li>
+                                <li>Памятник Петру I</li>
+                                <li>Павильон «Эрмитаж»</li>
+                                <li>Фонтаны «Адам» и «Ева»</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="routes-more-wrapper">
+                    <button class="routes-more-btn">Смотреть все маршруты</button>
+
+                    <div class="routes-more">
+                        <div class="routes-container">
+                            <div class="route-card">
+                                <img src="https://images.pexels.com/photos/33798214/pexels-photo-33798214.jpeg" alt="Маршрут">
+                                <div class="route-content">
+                                    <h3>Уникальные реки северной сталицы</h3>
+                                    <p class="route-desc">С воды предстанут в самом романтичном свете питерские набережные, изысканные мосты, дворцы из легенд и культовые соборы!</p>
+                                    <p class="route-points-title">Ключевые точки:</p>
+                                    <ul class="route-points">
+                                        <li>река Фонтанка</li>
+                                        <li>канал Грибоедова</li>
+                                        <li>река Мойка</li>
+                                        <li>река Нива</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="route-card">
+                                <img src="https://images.pexels.com/photos/9526771/pexels-photo-9526771.jpeg?_gl=1*1a66fa7*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzUzMjckbzIkZzEkdDE3NzMzMzU2MDgkajUzJGwwJGgw" alt="Маршрут">
+                                <div class="route-content">
+                                    <h3>Исторический центр</h3>
+                                    <p class="route-desc">Невский проспект, Дворцовая площадь и главные символы города.</p>
+                                    <p class="route-points-title">Ключевые точки:</p>
+                                    <ul class="route-points">
+                                        <li>Дворцовая площадь</li>
+                                        <li>Исаакиевский собор</li>
+                                        <li>Медный всадник</li>
+                                        <li>Зимний дворец</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="route-card">
+                                <img src="https://images.pexels.com/photos/9526771/pexels-photo-9526771.jpeg?_gl=1*1a66fa7*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzUzMjckbzIkZzEkdDE3NzMzMzU2MDgkajUzJGwwJGgw" alt="Маршрут">
+                                <div class="route-content">
+                                    <h3>Исторический центр</h3>
+                                    <p class="route-desc">Невский проспект, Дворцовая площадь и главные символы города.</p>
+                                    <p class="route-points-title">Ключевые точки:</p>
+                                    <ul class="route-points">
+                                        <li>Дворцовая площадь</li>
+                                        <li>Исаакиевский собор</li>
+                                        <li>Медный всадник</li>
+                                        <li>Зимний дворец</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="pricing">
+            <h2>Стоимость экскурсий</h2>
+
+            <div class="pricing-container">
+                <div class="price-card">
+                    <img src="img/Union.png" class="card-bg" alt="">
+                    <h3>Базовая экскурсия</h3>
+                    <p class="people">от 1 до 2 человек</p>
+                    <div class="price">1 500₽</div>
+                    <ul>
+                        <li>Любой маршрут на выбор</li>
+                        <li>Профессиональный гид</li>
+                        <li>Длительность экскурсии 2 часа</li>
+                    </ul>
+                    <button class="open-booking">Забронировать</button>
+                </div>
+
+                <div class="price-card">
+                    <img src="img/ilo.png" class="card-bg" alt="">
+                    <h3>Групповая экскурсия</h3>
+                    <p class="people">от 3 человек</p>
+                    <div class="price">1 200₽</div>
+                    <ul>
+                        <li>Любой маршрут на выбор</li>
+                        <li>Профессиональный гид</li>
+                        <li>Длительность экскурсии 3 часа</li>
+                    </ul>
+                    <button class="open-booking">Забронировать</button>
+                </div>
+
+                <div class="price-card">
+                    <img src="img/ino.png" class="card-bg" alt="">
+                    <h3>Персональная экскурсия</h3>
+                    <p class="people">от 1 до 2 человек</p>
+                    <div class="price">5 000₽</div>
+                    <ul>
+                        <li>Индивидуальный маршрут</li>
+                        <li>Персональный гид</li>
+                        <li>Длительность экскурсии 4 часа</li>
+                    </ul>
+                    <button class="open-booking">Забронировать</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages">
+            <h2 data-aos="fade-up">Почему выбирают нас</h2>
+
+            <div class="advantages-grid">
+                <div class="advantage" data-aos="fade-up">
+                    <div class="icon">🏛</div>
+                    <h3>Уникальные маршруты</h3>
+                    <p>Мы разрабатываем авторские прогулки по самым интересным местам Санкт-Петербурга.</p>
+                </div>
+
+                <div class="advantage" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon">👨‍🏫</div>
+                    <h3>Профессиональные гиды</h3>
+                    <p>Наши экскурсии проводят опытные гиды, знающие историю и архитектуру города.</p>
+                </div>
+
+                <div class="advantage" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon">⭐</div>
+                    <h3>Высокие оценки туристов</h3>
+                    <p>Большинство наших клиентов рекомендуют прогулки своим друзьям и знакомым.</p>
+                </div>
+
+                <div class="advantage" data-aos="fade-up" data-aos-delay="600">
+                    <div class="icon">💻</div>
+                    <h3>Удобное онлайн-бронирование</h3>
+                    <p>Вы можете забронировать экскурсию в любое время через наш сайт.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h2 data-aos="fade-up">Отзывы наших туристов</h2>
+
+            <div class="reviews-grid">
+                <div class="review-card" data-aos="fade-up">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Прекрасная экскурсия! Гид очень интересно рассказывал историю города. Обязательно пойду ещё!"</p>
+                    <h4>— Анна К., Москва</h4>
+                </div>
+
+                <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Очень понравился маршрут по Невскому проспекту и ночные мосты. Красиво и познавательно."</p>
+                    <h4>— Иван П., Санкт-Петербург</h4>
+                </div>
+
+                <div class="review-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p>"Отличная организация, гид профессионал. Советую всем туристам, кто хочет узнать Петербург."</p>
+                    <h4>— Мария С., Казань</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/5440439/pexels-photo-5440439.jpeg?_gl=1*1la2u3z*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzUzMjckbzIkZzEkdDE3NzMzMzc1MzEkajU5JGwwJGgw" alt="Санкт-Петербург">
+                </div>
+
+                <div class="about-text">
+                    <h2>О компании «Архиметрика»</h2>
+                    <p>ООО «Архиметрика» занимается организацией экскурсионных прогулок по Санкт-Петербургу. Наша команда разрабатывает уникальные маршруты, которые позволяют туристам увидеть главные архитектурные и исторические достопримечательности города.</p>
+                    <p>Мы предлагаем увлекательные прогулки по историческому центру, экскурсии по архитектурным памятникам и ночные маршруты с видом на развод мостов.</p>
+                    <p>Так же наша компания занимается перепланировками и согласованием жилых и нежилыз помещений. С дополнительной информацией об этом вы можете ознакомится на нашем сайте. <a href="https://www.archimetrica.ru/">Перейти...</a></p>
+
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>2000+</h3>
+                            <p>Туристов</p>
+                        </div>
+
+                        <div class="stat">
+                            <h3>150+</h3>
+                            <p>Экскурсий</p>
+                        </div>
+
+                        <div class="stat">
+                            <h3>10</h3>
+                            <p>Гидов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2 data-aos="fade-left">Фотографии с наших прогулок</h2>
+
+            <div class="gallery-grid">
+                <img src="https://images.pexels.com/photos/8963129/pexels-photo-8963129.jpeg?_gl=1*vv3k1e*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzAxNjgkbzEkZzEkdDE3NzMzMzAyMDkkajE5JGwwJGgw" class="gallery-img" alt="Галерея">
+                <img src="https://images.pexels.com/photos/8856760/pexels-photo-8856760.jpeg?_gl=1*n5rwux*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzAxNjgkbzEkZzEkdDE3NzMzMzAyOTMkajUwJGwwJGgw" class="gallery-img" alt="Галерея">
+                <img src="https://images.pexels.com/photos/7551003/pexels-photo-7551003.jpeg?_gl=1*1353fo3*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzAxNjgkbzEkZzEkdDE3NzMzMzA1NDgkajEwJGwwJGgw" class="gallery-img" alt="Галерея">
+                <img src="https://images.pexels.com/photos/4928995/pexels-photo-4928995.jpeg?_gl=1*1913f7t*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzAxNjgkbzEkZzEkdDE3NzMzMzA1OTkkajQyJGwwJGgw" class="gallery-img" alt="Галерея">
+                <img src="https://images.pexels.com/photos/15501388/pexels-photo-15501388.jpeg?_gl=1*vj8i5y*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzAxNjgkbzEkZzEkdDE3NzMzMzA2NTAkajU5JGwwJGgw" class="gallery-img" alt="Галерея">
+                <img src="https://images.pexels.com/photos/6976201/pexels-photo-6976201.jpeg?_gl=1*vaib07*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzUzMjckbzIkZzEkdDE3NzMzMzUzMjgkajU5JGwwJGgw" class="gallery-img" alt="Галерея">
+                <img src="https://images.pexels.com/photos/9526771/pexels-photo-9526771.jpeg?_gl=1*1a66fa7*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzUzMjckbzIkZzEkdDE3NzMzMzU2MDgkajUzJGwwJGgw" class="gallery-img" alt="Галерея">
+                <img src="https://images.pexels.com/photos/8633919/pexels-photo-8633919.jpeg?_gl=1*mzlt1z*_ga*MTQ3MzYwMDM2NS4xNzczMzMwMTY4*_ga_8JE65Q40S6*czE3NzMzMzUzMjckbzIkZzEkdDE3NzMzMzU5ODQkajU5JGwwJGgw" class="gallery-img" alt="Галерея">
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2>Маршрут прогулок по Санкт-Петербургу</h2>
+            <div id="map"></div>
+        </section>
+
+        <div class="lightbox" id="lightbox">
+            <img id="lightbox-img">
+        </div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Архиметрика</h3>
+                    <p>Адрес: Санкт-Петербург, м. «Фрунзенская», ул. Киевская д. 3, ЖК «Империал» помещение № 102-Н</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Маршруты</a></li>
+                        <li><a href="#">Галерея</a></li>
+                        <li><a href="#">О компании</a></li>
+                        <li><a href="#">Бронирование</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <p>📍 Санкт-Петербург</p>
+                    <p>📞 +7 812 938-99-35</p>
+                    <p>✉ info@archimetrika.ru</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Социальные сети</h3>
+                    <div class="socials">
+                        <a href="#">VK</a>
+                        <a href="#">Telegram</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 ООО «Архиметрика». Все права защищены.</p>
+            </div>
+        </footer>
+
+        <div class="booking-modal" id="bookingModal">
+            <div class="booking-content">
+                <span class="close-modal">&times;</span>
+                <h2>Бронирование экскурсии</h2>
+
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label>Маршрут</label>
+                        <select>
+                            <option>Исторический центр</option>
+                            <option>Архитектура Петербурга</option>
+                            <option>Ночные мосты</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дата</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Количество человек</label>
+                        <input type="number" min="1" value="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" placeholder="Введите имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Телефон</label>
+                        <input type="tel" placeholder="+7">
+                    </div>
+
+                    <div class="total-price">
+                        Итоговая стоимость: <span id="price">1500</span> ₽
+                    </div>
+
+                    <button type="submit" class="booking-btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="toast" class="toast">Заявка успешно отправлена!</div>
+        <button class="mobile-booking-btn">Забронировать</button>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
