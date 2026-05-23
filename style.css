@@ -638,6 +638,10 @@ section{
 padding:60px 10px !important;
 }
 
+.tour-page{
+padding:60px 20px !important;
+}
+
 /* Заголовки */
 h1{
 font-size:28px;
